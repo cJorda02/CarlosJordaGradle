@@ -35,6 +35,5 @@ public class Main {
         respuesta = model.chat(history).aiMessage();
         history.add(respuesta);
         System.out.println(respuesta.text());
-
     }
 }
