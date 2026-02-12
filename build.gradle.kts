@@ -37,3 +37,11 @@ tasks.register<Exec>("ollamaVersion") {
     // Configuración para Windows usando PowerShell
     commandLine("powershell", "-NoProfile", "-Command", "ollama --version")
 }
+
+tasks.register<Exec>("ollamaPs") {
+    group = "verification"
+    description = "Muestra los modelos de Ollama que están cargados actualmente en memoria"
+
+    // Configuración para Windows usando PowerShell
+    commandLine("powershell", "-NoProfile", "-Command", "ollama ps")
+}
