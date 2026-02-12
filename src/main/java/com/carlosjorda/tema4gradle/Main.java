@@ -2,6 +2,7 @@ package com.carlosjorda.tema4gradle;
 
 import dev.langchain4j.data.message.AiMessage;
 import dev.langchain4j.data.message.ChatMessage;
+import dev.langchain4j.data.message.SystemMessage;
 import dev.langchain4j.data.message.UserMessage;
 import dev.langchain4j.model.openai.OpenAiChatModel;
 
@@ -21,12 +22,16 @@ public class Main {
                 .build();
 
         List<ChatMessage> history = new ArrayList<>();
+
+        // System Prompt
+        history.add(new SystemMessage("Eres un experto en física cuántica."));
+
         // Interacción 1
         history.add(new UserMessage("Hola, soy Carlos"));
         AiMessage respuesta = model.chat(history).aiMessage();
         history.add(respuesta);
         // Interacción 2
-        history.add(new UserMessage("¿Recuerdas cómo me llamo?"));
+        history.add(new UserMessage("¿Me puedes explicar brevemente el Principio de Incertidumbre de Heisenberg?"));
         respuesta = model.chat(history).aiMessage();
         history.add(respuesta);
         System.out.println(respuesta.text());
