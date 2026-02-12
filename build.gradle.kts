@@ -30,6 +30,9 @@ application {
     mainClass.set("com.carlosjorda.tema4gradle.Main")
 }
 
+// Función para detectar si estamos en Windows
+val isWindows = System.getProperty("os.name").lowercase().contains("windows")
+
 tasks.register<Exec>("ollamaVersion") {
     group = "verification" // Esto es opcional, para organizarlo en IntelliJ
     description = "Muestra la versión de Ollama instalada"
