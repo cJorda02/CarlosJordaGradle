@@ -1,5 +1,6 @@
 plugins {
     id("java")
+    id("application")
 }
 
 group = "com.carlosjorda.tema4gradle"
@@ -22,4 +23,9 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+}
+
+application {
+    // para poder ejecutar la app desde terminal
+    mainClass.set("com.carlosjorda.tema4gradle.Main")
 }
