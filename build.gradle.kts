@@ -29,3 +29,11 @@ application {
     // para poder ejecutar la app desde terminal
     mainClass.set("com.carlosjorda.tema4gradle.Main")
 }
+
+tasks.register<Exec>("ollamaVersion") {
+    group = "verification" // Esto es opcional, para organizarlo en IntelliJ
+    description = "Muestra la versión de Ollama instalada"
+
+    // Configuración para Windows usando PowerShell
+    commandLine("powershell", "-NoProfile", "-Command", "ollama --version")
+}
