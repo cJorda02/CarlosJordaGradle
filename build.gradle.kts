@@ -45,3 +45,16 @@ tasks.register<Exec>("ollamaPs") {
     // Configuración para Windows usando PowerShell
     commandLine("powershell", "-NoProfile", "-Command", "ollama ps")
 }
+
+tasks.register("llmInfo") {
+    group = "verification"
+    description = "Ejecuta ollamaVersion, ollamaPs y muestra un mensaje final"
+
+    // Definimos el orden: esta tarea DEPENDE de las otras dos
+    dependsOn("ollamaVersion", "ollamaPs")
+
+    // Esto se ejecuta DESPUÉS de las tareas de las que depende
+    doLast {
+        println("Demo finalizada")
+    }
+}
