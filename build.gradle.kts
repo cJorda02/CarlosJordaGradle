@@ -16,6 +16,8 @@ dependencies {
 
     implementation(platform("dev.langchain4j:langchain4j-bom:1.10.0"))
     implementation("dev.langchain4j:langchain4j-open-ai")
+    implementation("dev.langchain4j:langchain4j-open-ai:0.33.0")
+    implementation("org.slf4j:slf4j-simple:2.0.7")
 }
 
 tasks.test {
